@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions xmlns:android="http://schemas.android.com/apk/res/android">
+    <action intentName="actions.intent.CREATE_THING">
+        <fulfillment>
+            <intent targetPackage="com.example.voice_intent_demo">
+                <action android:name="com.demo.action.ADD_SPLIT" />
+            </intent>
+        </fulfillment>
+        
+        <parameter name="thing.name">
+            <entity-set-reference entitySetId="ThingEntitySet" />
+        </parameter>
+    </action>
+    
+    <entity-set entitySetId="ThingEntitySet">
+        <entity identifier="split" name="split" />
+    </entity-set>
+</actions>
