@@ -1,16 +1,23 @@
-# voice_intent_demo
+# voice intent dummy app
 
-A new Flutter project.
+git clone repository 
 
-## Getting Started
+`cd voice-feature`
 
-This project is a starting point for a Flutter application.
+`flutter pub get`
 
-A few resources to get you started if this is your first Flutter project:
+`flutter build apk --release`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+`adb install -r build/app/outputs/flutter-apk/app-release.apk`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ADB Test Commands
+1. Open Add Split Screen (Empty)
+ `adb shell am start -a com.demo.action.ADD_SPLIT`
+
+2. Open Add Split Screen (With Pre-filled Value)
+adb shell am start -a com.demo.action.ADD_SPLIT --es android.intent.extra.TEXT "300"// or any number
+
+Google Assistant Integration
+App published to Google Play Store (Internal Testing minimum)
+have to Wait 24-48 hours for Google to index actions.xml
+
