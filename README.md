@@ -1,6 +1,6 @@
 # voice intent dummy app
-
-git clone repository 
+clone repository
+`git clone `
 
 `cd voice-feature`
 
