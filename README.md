@@ -21,9 +21,14 @@ ADB Test Commands
 
 Google Assistant Integration
 App published to Google Play Store (Internal Testing minimum)
+
 have to Wait 24-48 hours for Google to index actions.xml
 
 
 
-https://github.com/user-attachments/assets/2e733606-3dda-490c-a32a-af01adb642b5
+
+
+https://github.com/user-attachments/assets/324effe3-258e-455b-a6d7-2496ede47916
+
+
 
