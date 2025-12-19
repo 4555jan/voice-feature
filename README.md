@@ -13,6 +13,10 @@ clone repository
 ADB Test Commands
 1. Open Add Split Screen (Empty)
 
+
+https://github.com/user-attachments/assets/9419f093-4c4c-43ec-a062-0120a643a658
+
+
  `adb shell am start -a com.demo.action.ADD_SPLIT`
 
 3. Open Add Split Screen (With Pre-filled Value)
@@ -25,6 +29,10 @@ App published to Google Play Store (Internal Testing minimum)
 
 
 
+
+
+
+https://github.com/user-attachments/assets/273c8c2b-88d8-40b1-ba75-c8c3e9868bec
 
 
 
