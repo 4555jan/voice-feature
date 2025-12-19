@@ -12,10 +12,12 @@ git clone repository
 
 ADB Test Commands
 1. Open Add Split Screen (Empty)
+
  `adb shell am start -a com.demo.action.ADD_SPLIT`
 
-2. Open Add Split Screen (With Pre-filled Value)
-adb shell am start -a com.demo.action.ADD_SPLIT --es android.intent.extra.TEXT "300"// or any number
+3. Open Add Split Screen (With Pre-filled Value)
+
+`adb shell am start -a com.demo.action.ADD_SPLIT --es android.intent.extra.TEXT "300"`// or any number
 
 Google Assistant Integration
 App published to Google Play Store (Internal Testing minimum)
