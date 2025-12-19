@@ -12,7 +12,6 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        // Channel is registered here
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +26,12 @@ class MainActivity : FlutterActivity() {
 
     private fun handleIntent(intent: Intent?) {
         if (intent?.action == "com.demo.action.ADD_SPLIT") {
+            val splitValue = intent.getStringExtra(Intent.EXTRA_TEXT) ?: ""
+            
             MethodChannel(
                 flutterEngine!!.dartExecutor.binaryMessenger,
                 CHANNEL
-            ).invokeMethod("openAddSplit", null)
+            ).invokeMethod("openAddSplit", mapOf("value" to splitValue))
         }
     }
 }

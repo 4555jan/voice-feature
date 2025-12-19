@@ -23,7 +23,13 @@ class _MyAppState extends State<MyApp> {
 
     _channel.setMethodCallHandler((call) async {
       if (call.method == 'openAddSplit') {
-        navigatorKey.currentState?.pushNamed('/add-split');
+        final String value = call.arguments['value'] ?? '';
+        // Pop all routes and push add-split
+        navigatorKey.currentState?.pushNamedAndRemoveUntil(
+          '/add-split',
+          (route) => route.isFirst,
+          arguments: value,
+        );
       }
     });
   }
@@ -34,9 +40,14 @@ class _MyAppState extends State<MyApp> {
       title: 'Voice Intent Demo',
       navigatorKey: navigatorKey,
       initialRoute: '/',
-      routes: {
-        '/': (context) => const HomeScreen(),
-        '/add-split': (context) => const AddSplitScreen(),
+      onGenerateRoute: (settings) {
+        if (settings.name == '/add-split') {
+          final String value = settings.arguments as String? ?? '';
+          return MaterialPageRoute(
+            builder: (context) => AddSplitScreen(initialValue: value),
+          );
+        }
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
       },
     );
   }
@@ -47,19 +58,44 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('Home Screen')));
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("home screen"),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed('/add-split');
+          },
+          icon: const Icon(Icons.add),
+        ),
+      ),
+      body: const Center(child: Text('Home Screen')),
+    );
   }
 }
 
 class AddSplitScreen extends StatefulWidget {
-  const AddSplitScreen({super.key});
+  final String initialValue;
+
+  const AddSplitScreen({super.key, this.initialValue = ''});
 
   @override
   State<AddSplitScreen> createState() => _AddSplitScreenState();
 }
 
 class _AddSplitScreenState extends State<AddSplitScreen> {
-  final TextEditingController _nameController = TextEditingController();
+  late final TextEditingController _nameController;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: widget.initialValue);
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

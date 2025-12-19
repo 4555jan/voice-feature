@@ -4,6 +4,7 @@
         <fulfillment>
             <intent targetPackage="com.example.voice_intent_demo">
                 <action android:name="com.demo.action.ADD_SPLIT" />
+                <parameter name="android.intent.extra.TEXT" intentParameter="thing.name" />
             </intent>
         </fulfillment>
         
