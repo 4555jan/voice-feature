@@ -13,10 +13,6 @@ clone repository
 ADB Test Commands
 1. Open Add Split Screen (Empty)
 
-
-https://github.com/user-attachments/assets/9419f093-4c4c-43ec-a062-0120a643a658
-
-
  `adb shell am start -a com.demo.action.ADD_SPLIT`
 
 3. Open Add Split Screen (With Pre-filled Value)
